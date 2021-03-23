@@ -11,9 +11,11 @@ jobs:
         run: date > date.txt
       - name: commmit and push
         run: |
+              time-date="$(date +%H-%M-%S-%N)"
               git config user.name github-actions
               git config user.email github-actions@github.com
-              git branch add-"$(date +%H-%M-%S-%N)"
+              git branch add-"${time-date}"
+              git checkout "${time-date}"
               git add .
               git commit -m 'add'
               git push origin
