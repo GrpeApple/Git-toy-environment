@@ -8,14 +8,13 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Add date
-        run: date > date.txt
+        run: date +%H-%M-%S-%N > date.txt
       - name: commmit and push
         run: |
-              time-date="$(date +%H-%M-%S-%N)"
               git config user.name github-actions
               git config user.email github-actions@github.com
-              git branch add-"${time-date}"
-              git checkout "${time-date}"
+              git branch add-"$(cat date.txt)"
+              git checkout "$(cat date.txt)"
               git add .
               git commit -m 'add'
               git push origin
