@@ -14,7 +14,7 @@ jobs:
               git config user.name github-actions
               git config user.email github-actions@github.com
               git branch add-"$(cat date.txt)"
-              git checkout "$(cat date.txt)"
+              git checkout add-"$(cat date.txt)"
               git add .
               git commit -m 'add'
               git push origin
