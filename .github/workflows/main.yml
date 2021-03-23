@@ -17,4 +17,4 @@ jobs:
               git checkout add-"$(cat date.txt)"
               git add .
               git commit -m 'add'
-              git push origin
+              git push --set-upstream origin add-"$(cat date.txt)"
